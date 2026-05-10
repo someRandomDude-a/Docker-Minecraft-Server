@@ -1,0 +1,34 @@
+services:
+  mc:
+    build: .
+    env_file:
+      - .env
+    container_name: minecraft-server
+    network_mode: service:playit
+    volumes:
+      - ./Server:/Server
+    restart: unless-stopped
+    stop_grace_period: 1m
+    stdin_open: true
+    tty: true
+    depends_on:
+      - playit
+    deploy:
+      resources:
+        reservations:
+          memory: 6G
+        limits:
+          memory: 8G
+
+  playit:
+    image: ghcr.io/playit-cloud/playit-agent:latest
+    env_file:
+      - .env
+    ports:
+      - "25565:25565"
+    deploy:
+      resources:
+        reservations:
+          memory: 8M
+        limits:
+          memory: 16M
