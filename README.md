@@ -6,7 +6,7 @@ Runs A minecraft server on docker with playit for external tunnel access.
 
 ### Step 1
 
-Create a .env file with this format:
+Create a `.env` file with this format:
 
 ```.env
 SECRET_KEY="YOUR PLAYIT KEY HERE"
