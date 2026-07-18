@@ -21,7 +21,7 @@ services:
           memory: 8G
 
   playit:
-    image: ghcr.io/playit-cloud/playit-agent:latest
+    image: ghcr.io/playit-cloud/playit-agent:0.17.1
     env_file:
       - .env
     ports:
